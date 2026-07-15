@@ -1,7 +1,12 @@
 package com.recipe.app.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Recipe {
@@ -10,10 +15,14 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Title is required")
     private String title;
 
+    @NotBlank(message = "Category is required")
     private String category;
 
+    @Min(value = 1,message = "rating must be at least 1")
+    @Max(value = 5,message = "rating must be at most 5")
     private int rating;
 
     public Recipe() {}
