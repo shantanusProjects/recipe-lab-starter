@@ -1,6 +1,5 @@
 package com.recipe.app.controller;
 
-import com.recipe.app.exceptions.ResourceNotFoundException;
 import com.recipe.app.model.Recipe;
 import com.recipe.app.repository.RecipeRepository;
 import jakarta.validation.Valid;
